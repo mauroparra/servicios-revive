@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InscripcionViewDlg" widgetVar="InscripcionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInscripcionTitle}">
+            <h:form id="InscripcionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inscripcionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_codigoinscripcion}"/>
+                        <h:outputText value="#{inscripcionController.selected.codigoinscripcion}" title="#{bundle.ViewInscripcionTitle_codigoinscripcion}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_nombre}"/>
+                        <h:outputText value="#{inscripcionController.selected.nombre}" title="#{bundle.ViewInscripcionTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_apellido}"/>
+                        <h:outputText value="#{inscripcionController.selected.apellido}" title="#{bundle.ViewInscripcionTitle_apellido}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_telefono}"/>
+                        <h:outputText value="#{inscripcionController.selected.telefono}" title="#{bundle.ViewInscripcionTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_correo}"/>
+                        <h:outputText value="#{inscripcionController.selected.correo}" title="#{bundle.ViewInscripcionTitle_correo}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_curso}"/>
+                        <h:outputText value="#{inscripcionController.selected.curso}" title="#{bundle.ViewInscripcionTitle_curso}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_valor}"/>
+                        <h:outputText value="#{inscripcionController.selected.valor}" title="#{bundle.ViewInscripcionTitle_valor}"/>
+                        <h:outputText value="#{bundle.ViewInscripcionLabel_id}"/>
+                        <h:outputText value="#{inscripcionController.selected.id}" title="#{bundle.ViewInscripcionTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="InscripcionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

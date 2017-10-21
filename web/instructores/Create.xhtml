@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InstructoresCreateDlg" widgetVar="InstructoresCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateInstructoresTitle}">
+            <h:form id="InstructoresCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{instructoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateInstructoresLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{instructoresController.selected.cedula}" title="#{bundle.CreateInstructoresTitle_cedula}" />
+                        <p:outputLabel value="#{bundle.CreateInstructoresLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{instructoresController.selected.nombre}" title="#{bundle.CreateInstructoresTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateInstructoresLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{instructoresController.selected.apellido}" title="#{bundle.CreateInstructoresTitle_apellido}" />
+                        <p:outputLabel value="#{bundle.CreateInstructoresLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{instructoresController.selected.telefono}" title="#{bundle.CreateInstructoresTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateInstructoresLabel_correo}" for="correo" />
+                        <p:inputText id="correo" value="#{instructoresController.selected.correo}" title="#{bundle.CreateInstructoresTitle_correo}" />
+                        <p:outputLabel value="#{bundle.CreateInstructoresLabel_profesion}" for="profesion" />
+                        <p:inputText id="profesion" value="#{instructoresController.selected.profesion}" title="#{bundle.CreateInstructoresTitle_profesion}" />
+                        <p:outputLabel value="#{bundle.CreateInstructoresLabel_curso}" for="curso" />
+                        <p:inputText id="curso" value="#{instructoresController.selected.curso}" title="#{bundle.CreateInstructoresTitle_curso}" />
+                        <p:outputLabel value="#{bundle.CreateInstructoresLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{instructoresController.selected.id}" title="#{bundle.CreateInstructoresTitle_id}" required="true" requiredMessage="#{bundle.CreateInstructoresRequiredMessage_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{instructoresController.create}" value="#{bundle.Save}" update="display,:InstructoresListForm:datalist,:growl" oncomplete="handleSubmit(args,'InstructoresCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InstructoresCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

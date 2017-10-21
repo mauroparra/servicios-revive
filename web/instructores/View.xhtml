@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InstructoresViewDlg" widgetVar="InstructoresViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInstructoresTitle}">
+            <h:form id="InstructoresViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{instructoresController.selected != null}">
+                        <h:outputText value="#{bundle.ViewInstructoresLabel_cedula}"/>
+                        <h:outputText value="#{instructoresController.selected.cedula}" title="#{bundle.ViewInstructoresTitle_cedula}"/>
+                        <h:outputText value="#{bundle.ViewInstructoresLabel_nombre}"/>
+                        <h:outputText value="#{instructoresController.selected.nombre}" title="#{bundle.ViewInstructoresTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewInstructoresLabel_apellido}"/>
+                        <h:outputText value="#{instructoresController.selected.apellido}" title="#{bundle.ViewInstructoresTitle_apellido}"/>
+                        <h:outputText value="#{bundle.ViewInstructoresLabel_telefono}"/>
+                        <h:outputText value="#{instructoresController.selected.telefono}" title="#{bundle.ViewInstructoresTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewInstructoresLabel_correo}"/>
+                        <h:outputText value="#{instructoresController.selected.correo}" title="#{bundle.ViewInstructoresTitle_correo}"/>
+                        <h:outputText value="#{bundle.ViewInstructoresLabel_profesion}"/>
+                        <h:outputText value="#{instructoresController.selected.profesion}" title="#{bundle.ViewInstructoresTitle_profesion}"/>
+                        <h:outputText value="#{bundle.ViewInstructoresLabel_curso}"/>
+                        <h:outputText value="#{instructoresController.selected.curso}" title="#{bundle.ViewInstructoresTitle_curso}"/>
+                        <h:outputText value="#{bundle.ViewInstructoresLabel_id}"/>
+                        <h:outputText value="#{instructoresController.selected.id}" title="#{bundle.ViewInstructoresTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="InstructoresViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
